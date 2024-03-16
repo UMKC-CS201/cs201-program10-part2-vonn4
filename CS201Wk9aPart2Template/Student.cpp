@@ -18,5 +18,5 @@ void Student::print() {
 		<< setw(15) << lname
 		<< setw(15) << fname
 		<< setw(5) << right << age 
-		<< setw(13) << gpa << endl;
+		<< setw(13) << "GPA: " << gpa << endl;
 }

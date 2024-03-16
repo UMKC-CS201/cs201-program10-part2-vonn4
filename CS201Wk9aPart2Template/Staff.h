@@ -16,7 +16,7 @@ public:
 
    Staff(char t, string l, string f, int a, int h, float hr)
        : Person(l,f,a){
-      type = ' ';
+      type = t;
       hours = h;
       hrlyRate = hr;
       totalStaff ++;

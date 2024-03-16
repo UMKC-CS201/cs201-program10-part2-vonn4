@@ -22,7 +22,7 @@ public:
   void setFName(string f) { fname = f; }    //mutator (first name)
   void setLName(string l) { lname = l; }
   void setAge(int a) { this->age = a; }
-  void print();
+  virtual void print();
 
   // add static member to count Persons created
   // where would this be updated?

@@ -1,7 +1,7 @@
 #include "Function.h"
 
-int readFile(vector<Person>& people, vector<Student>& students, 
-             vector<Staff>& staff, vector<Person> &allPeople) {
+int readFile(vector<Person>& people, vector<Student>& students, vector<Teacher>& teacher, vector<Employee>& employee, vector<Person*> &allPeople) {
+	//***remember to modify this for the teachers and employees***
 
   //OPEN THE INPUT FILE
 	ifstream inFile;
@@ -34,19 +34,33 @@ int readFile(vector<Person>& people, vector<Student>& students,
 		if (row[0][0] == 'S') {
 			Student tempS(row[1], row[2], stoi(row[3]), stof(row[4]));
 			students.push_back(tempS);
-			allPeople.push_back(tempS);
+			Student* tempSP = new Student(row[1], row[2], stoi(row[3]), stof((row[4])));
+			allPeople.push_back(tempSP);
 		}
-		else if ((row[0][0] == 'E') || (row[0][0] == 'T')) {
-			Staff tempE('W',row[1], row[2], stoi(row[3]), stoi(row[4]), stof(row[5]));
+	
+		else if (row[0][0] == 'T') {
+			Teacher tempT('T', row[1], row[2], stoi(row[3]), stoi(row[4]), stof(row[5]), row[6]);
 			// if valid, push the object onto the vector
-			staff.push_back(tempE);
-			allPeople.push_back(tempE);
+			teacher.push_back(tempT);
+			Teacher* tempTP = new Teacher('T', row[1], row[2], stoi(row[3]), stoi(row[4]), stof(row[5]), row[6]);
+			allPeople.push_back(tempTP);
 		}
+		else if (row[0][0] == 'E') {
+			Employee tempE('E', row[1], row[2], stoi(row[3]), stoi(row[4]), stof(row[5]), stof(row[6]));
+			// if valid, push the object onto the vector
+			employee.push_back(tempE);
+			Employee* tempEP = new Employee('E', row[1], row[2], stoi(row[3]), stoi(row[4]), stof(row[5]), stof(row[6]));
+			allPeople.push_back(tempEP);
+		}
+		
     else  {
-        Person tempP(row[1], row[2], stoi(row[3]));
-        // if valid, push the object onto the vector
-        people.push_back(tempP);
-        allPeople.push_back(tempP);
+			Person tempP(row[1], row[2], stoi(row[3]));
+			// if valid, push the object onto the vector
+			people.push_back(tempP);
+			Person* tempPP = new Person(row[1], row[2], stoi(row[3]));
+			//create a Person and allocate memory for it
+			//pointer of person type with the same information as person
+			allPeople.push_back(tempPP);
       }
     }
     catch(...){
@@ -81,14 +95,78 @@ void printVector(vector<Student> student) {
 }
 
 // write the code to print the vector
-void printVector(vector<Staff> staff) {
+//void printVector(vector<Staff> staff) {
+//
+//  cout << "\n\nTYPE" << setw(11) << "LAST NAME"
+//    << setw(17) << "FIRST NAME" << setw(8) << "AGE"
+//    << setw(18) << "OTHER INFO" << setw(38) << "PETS" << endl;
+//  for (int i = 0; i < staff.size(); i++)
+//    staff.at(i).print();
+//
+//  cout << "\nTOTAL STAFF: " << Staff::totalStaff << endl;
+//}
 
-  cout << "\n\nTYPE" << setw(11) << "LAST NAME"
-    << setw(17) << "FIRST NAME" << setw(8) << "AGE"
-    << setw(18) << "OTHER INFO" << setw(38) << "PETS" << endl;
-  for (int i = 0; i < staff.size(); i++)
-    staff.at(i).print();
+void printVector(vector<Person*> allPeople) {
 
-  cout << "\nTOTAL STAFF: " << Staff::totalStaff << endl;
+	cout << "\n\nTYPE" << setw(11) << "LAST NAME"
+		<< setw(17) << "FIRST NAME" << setw(8) << "AGE"
+		<< setw(18) << "OTHER INFO" << setw(38) << "PETS" << endl;
+	for (int i = 0; i < allPeople.size(); i++)
+		allPeople.at(i)->print();
+
+	cout << "\nTOTAL PEOPLE: " << Student::totalStudents + Teacher::totalTeachers + Employee::totalEmployees +Person::totalPeople << endl;
 }
 
+/*
+Questions for Professor Gladbach:
+1. How should I set up my print functions - do I need the * and the &?
+2. I get an error about the .exe file not being found, what can I do about this?
+3. Have I made all the necessary changes to my allPeople declaration in main.cpp, function.cpp, and function.h?
+*/
+
+
+//statements for print function of teacher and employee objects
+
+void printVector(vector<Teacher> teacher){
+
+  cout << "\n\nTYPE" << setw(11) << "LAST NAME"
+	<< setw(17) << "FIRST NAME" << setw(8) << "AGE"
+	<< setw(18) << "OTHER INFO" << setw(38) << "PETS" << endl;
+  for (int i = 0; i < teacher.size(); i++)
+	teacher.at(i).print();
+
+  cout << "\nTOTAL TEACHERS: " << Teacher::totalTeachers << endl;
+}
+
+void printVector(vector<Employee> employee){
+
+  cout << "\n\nTYPE" << setw(11) << "LAST NAME"
+	<< setw(17) << "FIRST NAME" << setw(8) << "AGE"
+	<< setw(18) << "OTHER INFO" << setw(38) << "PETS" << endl;
+  for (int i = 0; i < employee.size(); i++)
+	employee.at(i).print();
+
+  cout << "\nTOTAL EMPLOYEES: " << Employee::totalEmployees << endl;
+}
+
+
+//statements for pushing teacher and employee objects to respective vectors
+/*
+else if (row[0][0] == 'T') {
+			Teacher tempT('W',row[1], row[2], stoi(row[3]), stoi(row[4]), stof(row[5]), row[6] );
+			// if valid, push the object onto the vector
+			teacher.push_back(tempT);
+			Teacher* tempTP = new Teacher('W', row[1], row[2], stoi(row[3]), stoi(row[4]), stof(row[5]), row[6]);
+			allPeople.push_back(tempTP);
+		}
+*/
+
+/*
+else if (row[0][0] == 'E'){
+			Employee tempE('W',row[1], row[2], stoi(row[3]), stoi(row[4]), stof(row[5]), stof(row[6]) );
+			// if valid, push the object onto the vector
+			employee.push_back(tempE);
+			Teacher* tempEP = new Teacher('W', row[1], row[2], stoi(row[3]), stoi(row[4]), stof(row[5]), stof(row[6]));
+			allPeople.push_back(tempEP);
+}
+*/
