@@ -1,0 +1,66 @@
+RECORD: P,Jones,Bob,BB,none IS IN ERROR
+
+
+TYPE  LAST NAME       FIRST NAME     AGE        OTHER INFO                                  PETS
+P    Bunny          Bugs              54
+P    Sam            Yosemite          68
+P    Harris         Kamala            59
+P    Stefani        Gwen              54
+
+TOTAL PEOPLE: 36
+
+
+TYPE  LAST NAME       FIRST NAME     AGE        OTHER INFO                                  PETS
+S    Einstein       Albert           143        GPA: 4.9
+S    Parsons        Jim               42        GPA: 4.2
+S    Mouse          Mickey            91        GPA: 3.5
+S    Duck           Daffy             84        GPA: 2.5
+S    Kenobi         Obiwan           156        GPA: 4.9
+S    Squarepants    Spongebob          5        GPA: 2.3
+
+TOTAL STUDENTS: 12
+
+
+TYPE  LAST NAME       FIRST NAME     AGE        OTHER INFO                                  PETS
+T    Rabbit         Roger             84          20, hrlyRate: 10.50, Subject:  Physical Education
+T    Sullivan       James             29          30, hrlyRate: 15.15, Subject:  Management
+T    Lightyear      Buzz              45          40, hrlyRate: 20.15, Subject:  Astronomy
+T    Wazowski       Mike              36          35, hrlyRate: 17.50, Subject:  Computer Science
+
+TOTAL TEACHERS: 8
+
+
+TYPE  LAST NAME       FIRST NAME     AGE        OTHER INFO                                  PETS
+E    Mouse          Minne             24          40, hrlyRate: 15.50, vacHours: 14.00
+E    Pig            Porky             32          30, hrlyRate: 12.00, vacHours: 7.00
+E    Dinkley        Velma             25          40, hrlyRate: 14.50, vacHours: 20.60
+E    Griffin        Stewie             1          20, hrlyRate: 14.50, vacHours: 27.50
+
+TOTAL EMPLOYEES: 8
+
+
+TYPE  LAST NAME       FIRST NAME     AGE        OTHER INFO                                  PETS
+P    Bunny          Bugs              54
+P    Sam            Yosemite          68
+P    Harris         Kamala            59
+P    Stefani        Gwen              54
+S    Einstein       Albert           143        GPA: 4.90
+S    Parsons        Jim               42        GPA: 4.20
+S    Mouse          Mickey            91        GPA: 3.50
+S    Duck           Daffy             84        GPA: 2.50
+S    Kenobi         Obiwan           156        GPA: 4.90
+S    Squarepants    Spongebob          5        GPA: 2.30
+T    Rabbit         Roger             84          20, hrlyRate: 10.50, Subject:  Physical Education
+T    Sullivan       James             29          30, hrlyRate: 15.15, Subject:  Management
+T    Lightyear      Buzz              45          40, hrlyRate: 20.15, Subject:  Astronomy
+T    Wazowski       Mike              36          35, hrlyRate: 17.50, Subject:  Computer Science
+E    Mouse          Minne             24          40, hrlyRate: 15.50, vacHours: 14.00
+E    Pig            Porky             32          30, hrlyRate: 12.00, vacHours: 7.00
+E    Dinkley        Velma             25          40, hrlyRate: 14.50, vacHours: 20.60
+E    Griffin        Stewie             1          20, hrlyRate: 14.50, vacHours: 27.50
+
+TOTAL PEOPLE: 64
+
+C:\Users\Owner\source\repos\cs201-program10-part2-vonn4\x64\Debug\CS201Wk9aPart2Template.exe (process 14684) exited with code 0.
+To automatically close the console when debugging stops, enable Tools->Options->Debugging->Automatically close the console when debugging stops.
+Press any key to close this window . . .
